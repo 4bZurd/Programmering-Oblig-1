@@ -1,38 +1,66 @@
-import javax.swing.JOptionPane;//importerer JOptionPane.
+//Oppgave 2
 
-public class Obligoppgave2
+//Lag et applikasjonsprogram som beregner og skriver ut summen av alle tall mellom to grenser som brukeren skriver inn.
+//Programmet skal starte med å lese inn nedre og øvre grense for summen. Dersom innlest øvre grense er mindre enn eller lik nedre grense,
+//skal programmet skrive ut en melding til brukeren om dette og foreta ny innlesing. Når godkjente grenser er lest inn,
+//skal programmet beregne nevnte sum og summen skal så skrive den ut som en sum. Hvis f. eks. nedre grense er 2 og øvre grense er 8 skal det skrives
+//ut følgende tekst: "2 + 3 + 4 + 5 + 6 + 7 + 8 = 35".
+//Test ut programmet med nedre grense lik 1 og øvre grense lik 100. Legg inn et linjeskift for hvert 10. tall i summen.
+
+
+import javax.swing.JOptionPane;//importerer JOptionPane funksjonene.
+
+public class Utregning
 {
 	public static void main(String[] args)
 	{
 
-		String nedregrense;
-		String øvregrense;
+		int nedregrense; // Her legger vi inn variablene som programmet skal bruke.
+		int øvregrense;
+		String resultat= "";
+		int teller=1;
+		int sum=0;
 
-		int x;
-		int y;
-		int sum;
 
 
-		nedregrense =
-			JOptionPane.showInput( "Skriv inn nedre grense:" );
+		do // En do-while løkke som gjør utregningene som 
+		{
+			resultat="";
+			nedregrense =  Integer.parseInt(JOptionPane.showInputDialog( "Skriv inn nedre grense:" ));
 
-		øvregrense =
-			JOptionPane.showInput( "Skriv inn øvre grense:" );
-
-		x = Integer.parseInt( nedregrense );
-		y = Integer.parseInt( øvregrense );
-
-		if ( y <= x )
+			øvregrense = Integer.parseInt(JOptionPane.showInputDialog( "Skriv inn øvre grense:" ));
+			if( øvregrense > nedregrense)
 			{
-			JOptionPane.showMessageDialog ( "Du må skrive inn et tall som er høyere enn " + x + "!", "Tallet er for lavt", JOptionPane.ERROR_MESSAGE )
+				for ( int i= nedregrense; i<=øvregrense; i++)
+				{
+					sum=i+sum;
+					if(i==øvregrense)
+					{
+						resultat=resultat+i;
+					}
+					else
+					{
+						resultat=resultat+i+"+";
+					}
+
+					if(teller%10==0)
+					{
+						resultat=resultat+"\n";
+					}
+					teller++;
+				}
+				resultat= resultat+"="+sum;
+
 			}
-		else if ( y > x )
+			else
 			{
-			// her skal vi ha hva som skjer dersom y er større enn x
+				resultat="øvregrense er mindre enn nedregrense!";
+				JOptionPane.showMessageDialog(null,resultat);
 			}
+		} while(!(øvregrense>nedregrense));
 
-		// vi trenger å definere hva som skjer etter at den har etablert om y er mindre enn eller lik x
-		// vi må få den til å gå tilbake for å skrive inn nytt tall for øvre grense hvis ikke y er større enn x
 
+				JOptionPane.showMessageDialog(null,resultat);
 	}
+
 }
