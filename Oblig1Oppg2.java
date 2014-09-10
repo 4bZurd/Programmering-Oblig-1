@@ -1,12 +1,16 @@
-//Oppgave 2
+/*
+Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
+Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
 
-//Lag et applikasjonsprogram som beregner og skriver ut summen av alle tall mellom to grenser som brukeren skriver inn.
-//Programmet skal starte med å lese inn nedre og øvre grense for summen. Dersom innlest øvre grense er mindre enn eller lik nedre grense,
-//skal programmet skrive ut en melding til brukeren om dette og foreta ny innlesing. Når godkjente grenser er lest inn,
-//skal programmet beregne nevnte sum og summen skal så skrive den ut som en sum. Hvis f. eks. nedre grense er 2 og øvre grense er 8 skal det skrives
-//ut følgende tekst: "2 + 3 + 4 + 5 + 6 + 7 + 8 = 35".
-//Test ut programmet med nedre grense lik 1 og øvre grense lik 100. Legg inn et linjeskift for hvert 10. tall i summen.
+Oppgave 2
 
+Lag et applikasjonsprogram som beregner og skriver ut summen av alle tall mellom to grenser som brukeren skriver inn.
+Programmet skal starte med å lese inn nedre og øvre grense for summen. Dersom innlest øvre grense er mindre enn eller lik nedre grense,
+skal programmet skrive ut en melding til brukeren om dette og foreta ny innlesing. Når godkjente grenser er lest inn,
+skal programmet beregne nevnte sum og summen skal så skrive den ut som en sum. Hvis f. eks. nedre grense er 2 og øvre grense er 8 skal det skrives
+ut følgende tekst: "2 + 3 + 4 + 5 + 6 + 7 + 8 = 35".
+Test ut programmet med nedre grense lik 1 og øvre grense lik 100. Legg inn et linjeskift for hvert 10. tall i summen.
+*/
 
 import javax.swing.JOptionPane;//importerer JOptionPane funksjonene som vi trenger.
 
@@ -23,7 +27,7 @@ public class Utregning
 
 
 
-		do // Do-whil avgjør om programmet er ture eller false. Og har betingelsen på slutten av løkka.
+		do // Do-while avgjør om programmet er true eller false. Og har betingelsen på slutten av løkka.
 		{
 			resultat ="";
 
@@ -34,17 +38,17 @@ public class Utregning
 			if( øvregrense > nedregrense)
 			{
 				for ( int i= nedregrense; i <= øvregrense; i++)  // Vi lar "i" være et tall som er lik nedregrense i utgangspunktet,
-															     //så lenge "i" er mindre enn nedregrensa så gjør vi utregningen
+															     // så lenge "i" er mindre enn nedregrensa så gjør vi utregningen
 				{
 					sum = i + sum;
 
-					if( i == øvregrense)					     // Dette skjer når i lik øvregrensen
+					if( i == øvregrense)					     // Dette skjer når "i" er lik øvregrensen
 
 					{
 						resultat = resultat + i;
 					}
 
-					else									    /* Dette skjer hvis i ikke er lik øvregrensen, det er her skjer helt til nedregrense er lik
+					else									    /* Dette skjer hvis "i" ikke er lik øvregrensen, det er her skjer helt til nedregrense er lik
 															    øvregrense*/
 
 					{
@@ -65,19 +69,19 @@ public class Utregning
 
 			}
 
-			else													/* Her har vi utskift funksjonen som sier ifra om du har satt inn ugyldig
+			else													/* Her har vi utskrift funksjonen som sier ifra om du har satt inn ugyldig
 																   tall i programmet*/
 
 			{
 				resultat="øvregrense er mindre enn nedregrense!";
 
-				JOptionPane.showMessageDialog(null,resultat);
+				JOptionPane.showMessageDialog(null,resultat,"Feil inntasting",JOptionPane.ERROR_MESSAGE);
 			}
 
-		} while(!(øvregrense>nedregrense));							/* Dette er funksjonen som enter avslutter programmet, eller starter det på nytt hvis
+		} while(!(øvregrense>nedregrense));							/* Dette er funksjonen som enten avslutter programmet, eller starter det på nytt hvis
 																	   du har satt noe feil.*/
 
-				JOptionPane.showMessageDialog(null,resultat);
+				JOptionPane.showMessageDialog(null,resultat,"Utregning",JOptionPane.PLAIN_MESSAGE);
 	}
 
 }
