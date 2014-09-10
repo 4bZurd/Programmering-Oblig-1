@@ -10,19 +10,44 @@
 
 import javax.swing.JOptionPane;//importerer JOptionPane.
 
-public class Utregning
+public class Obligoppgave2
 {
 	public static void main(String[] args)
 	{
-		int x = 1;
 
-		int sum = 0;
+		String nedregrense;
+		String øvregrense;
+
+		int x;
+		int y;
+		int sum;
+
+
+		nedregrense =
+			JOptionPane.showInput( "Skriv inn nedre grense:" );
+
+		øvregrense =
+			JOptionPane.showInput( "Skriv inn øvre grense:" );
+
+		x = Integer.parseInt( nedregrense );
+		y = Integer.parseInt( øvregrense );
+
 
 		while( x <= 100 )
 		{
 			sum = sum + x;
 			x = x + 1;
 		}
+
+
+
+
+
+
+
+
+
+
 
 		JOptionPane.showMessageDialog(null,
 		"Summen av tallene fra 1 til 100 er " + sum);
