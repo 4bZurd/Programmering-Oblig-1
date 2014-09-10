@@ -8,7 +8,7 @@
 //Test ut programmet med nedre grense lik 1 og øvre grense lik 100. Legg inn et linjeskift for hvert 10. tall i summen.
 
 
-import javax.swing.JOptionPane;//importerer JOptionPane funksjonene.
+import javax.swing.JOptionPane;//importerer JOptionPane funksjonene som vi trenger.
 
 public class Utregning
 {
@@ -23,42 +23,59 @@ public class Utregning
 
 
 
-		do // En do-while løkke som gjør utregningene som 
+		do // Do-whil avgjør om programmet er ture eller false. Og har betingelsen på slutten av løkka.
 		{
-			resultat="";
+			resultat ="";
+
 			nedregrense =  Integer.parseInt(JOptionPane.showInputDialog( "Skriv inn nedre grense:" ));
 
 			øvregrense = Integer.parseInt(JOptionPane.showInputDialog( "Skriv inn øvre grense:" ));
+
 			if( øvregrense > nedregrense)
 			{
-				for ( int i= nedregrense; i<=øvregrense; i++)
+				for ( int i= nedregrense; i <= øvregrense; i++)  // Vi lar "i" være et tall som er lik nedregrense i utgangspunktet,
+															     //så lenge "i" er mindre enn nedregrensa så gjør vi utregningen
 				{
-					sum=i+sum;
-					if(i==øvregrense)
+					sum = i + sum;
+
+					if( i == øvregrense)					     // Dette skjer når i lik øvregrensen
+
 					{
-						resultat=resultat+i;
-					}
-					else
-					{
-						resultat=resultat+i+"+";
+						resultat = resultat + i;
 					}
 
-					if(teller%10==0)
+					else									    /* Dette skjer hvis i ikke er lik øvregrensen, det er her skjer helt til nedregrense er lik
+															    øvregrense*/
+
 					{
-						resultat=resultat+"\n";
+						resultat = resultat + i + "+";
 					}
+
+					if( teller % 10==0)						    /*Dette er funksjonen som teller antall tall som er telt til nå, så det er her vi vet hvor
+															    mange tall som er telt. Derfor vet programmet at vi skal sette linjeskift*/
+
+					{
+						resultat = resultat + "\n";
+					}
+
 					teller++;
 				}
-				resultat= resultat+"="+sum;
+
+				resultat = resultat + "=" +sum;
 
 			}
-			else
+
+			else													/* Her har vi utskift funksjonen som sier ifra om du har satt inn ugyldig
+																   tall i programmet*/
+
 			{
 				resultat="øvregrense er mindre enn nedregrense!";
+
 				JOptionPane.showMessageDialog(null,resultat);
 			}
-		} while(!(øvregrense>nedregrense));
 
+		} while(!(øvregrense>nedregrense));							/* Dette er funksjonen som enter avslutter programmet, eller starter det på nytt hvis
+																	   du har satt noe feil.*/
 
 				JOptionPane.showMessageDialog(null,resultat);
 	}
