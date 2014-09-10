@@ -23,8 +23,13 @@ public class Obligoppgave2
 		y = Integer.parseInt( øvregrense );
 
 		if ( y <= x )
+			{
 			JOptionPane.showMessageDialog ( "Du må skrive inn et tall som er høyere enn " + x + "!", "Tallet er for lavt", JOptionPane.ERROR_MESSAGE )
+			}
 		else if ( y > x )
+			{
+			// her skal vi ha hva som skjer dersom y er større enn x
+			}
 
 		// vi trenger å definere hva som skjer etter at den har etablert om y er mindre enn eller lik x
 		// vi må få den til å gå tilbake for å skrive inn nytt tall for øvre grense hvis ikke y er større enn x
