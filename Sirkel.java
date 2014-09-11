@@ -63,12 +63,12 @@ public class Sirkel //Klassen må på plass
 
     public double omkrets() //Get-metode for omkrets
 	  {
-	  	return 2*3.14159*radius;
+	  	return 2*Math.PI*radius;
     }
 
     public double  areal() //Get-metode for areal
     {
-	    return 	3.14159*radius*radius;
+	    return 	Math.PI*radius*radius;
     }
 
     public String utskrift()  // Vi har importert java.text.DecimalFormat, derfor kan vi få ut desimaltall
