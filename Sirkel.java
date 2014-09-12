@@ -31,7 +31,7 @@ public class Sirkel
 
 } // end of class Sirkel
 */
-
+import javax.swing.JOptionPane;
 import java.text.DecimalFormat; //importerer decimalformatet
 
 public class Sirkel //Klassen må på plass
@@ -58,7 +58,7 @@ public class Sirkel //Klassen må på plass
 
     public double diameter() //Get-metode for diameter
     {
-		  return 2*radius;
+		  return 2*Math.PI*radius;
     }
 
     public double omkrets() //Get-metode for omkrets
@@ -71,7 +71,7 @@ public class Sirkel //Klassen må på plass
 	    return 	Math.PI*radius*radius;
     }
 
-    public String utskrift()  // Vi har importert java.text.DecimalFormat, derfor kan vi få ut desimaltall
+    public String vis()  // Vi har importert java.text.DecimalFormat, derfor kan vi få ut desimaltall
     {
 		   DecimalFormat d = new DecimalFormat("0.00");
 
