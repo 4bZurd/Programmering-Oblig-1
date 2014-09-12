@@ -33,24 +33,47 @@ import javax.swing.JOptionPane; //importerer JOptionPane for å kunne benytte ut
 public class Sirkeltest
 {
 
-	public static void main(String[] args) //main metode for å kunne kjøre programmet
+    public static void main(String [] args)
 	{
-		String r = JOptionPane.showInputDialog("Skriv inn radius"); //input dialog for å hente sirkelens radius fra brukeren.
+		double r = 0.00;
+		double r2 =0.00;
+        Sirkel sirkel;
+        String utskrift = "";
+        int gjennoms = 0;
 
-		double radius = Double.parseDouble(r); //parser radius til double, for å kunne vise desimaltall
 
-		Sirkel s = new Sirkel(radius); //oppretter sirkel-object, der radius settes til det som ble skrevet inn av bruker
+		while ( r >= 0)
+		{
+			String tom = JOptionPane.showInputDialog("Sett en radius for skirkelen. Avslutt programmet med et negativt tall.");
+			if(tom.isEmpty())
+			{
+				JOptionPane.showMessageDialog(null,"Du har ikke lest inn noen verdi!");
+			}
+			else
+			{
+				r = Double.parseDouble(tom);
+				r2+=r;
+				if (r >=0)
+				{
+				sirkel = new Sirkel(r);
+				utskrift = sirkel.vis();
+				JOptionPane.showMessageDialog(null,utskrift);
+				gjennoms ++;
+		    }
+		    }
+		}
 
-		String output = s.utskrift();
 
-		JOptionPane.showMessageDialog(null, output);
-   }
+    double r1 = r2 / gjennoms;
+
+    if(r1<0)
+    {
+		JOptionPane.showMessageDialog(null,"Du har ikke lest inn positiv radius!");
+	}
+     else
+    {
+
+    JOptionPane.showMessageDialog(null, "Gjennomsnittet på" + r2 + " / " + gjennoms + " = " + r1);
+    }
+  }
 }
-
-/* gjenstår å få til:
-- Summer radiusene ettehvert som de leses inn
-- test om innskrevet radius er positiv
-- teste at utskrift på skjerm av sirkelens radius, diameter, omkrets og areal fungerer
-- en ny innlesing av sirkelens radius etter at areal, omkrets, radius og diameter er skrevet ut på skjerm
-- lage kode for å skrive ut den gjennomsnittlige radiusen for de innleste sirklene. Melding om at det ikke er lest inn noen sirkel dersom det ikke er gjort enda.
-*/
