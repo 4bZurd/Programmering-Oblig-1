@@ -58,7 +58,7 @@ public class Sirkel //Klassen må på plass
 
     public double diameter() //Get-metode for diameter
     {
-		  return 2*Math.PI*radius;
+		  return 2*radius;
     }
 
     public double omkrets() //Get-metode for omkrets
